@@ -18,7 +18,8 @@
     <div class="header-top">
       <a class="logo" href="index.html"><img src="images/logo.png" alt="Charice's Studio"></a>
       <div class="header-icons">
-        <a href="cart.html"><img src="images/icon-user.png" alt="Account"></a>
+        <button class="icon-btn" type="button" data-bs-toggle="modal" data-bs-target="#account-modal"
+          aria-label="Log in or sign up"><img src="images/icon-user.png" alt=""></button>
         <a href="cart.html"><img src="images/icon-cart.png" alt="Shopping cart"></a>
         <span class="divider"></span>
         <a class="social" href="https://www.instagram.com/charicesstudio/"><img src="images/icon-instagram.png"
@@ -48,65 +49,361 @@
     <section class="banner light">
       <h1>Shop Our Holiday Sale this October!</h1>
     </section>
-    <nav class="cat-links" aria-label="Shop categories"><a href="#">Jewelry</a><span>|</span><a
-        href="#">Crafts</a><span>|</span><a href="#">Thrift Flips</a><span>|</span><a href="#">Embroidery</a></nav>
-    <div class="container products">
-      <div class="row g-4">
-        <div class="col-6 col-md-3"><a class="product" href="product.html"><img src="images/p-blue-jellyfish.jpg"
-              alt="Blue Jellyfish earrings">
-            <h3>Blue Jellyfish</h3>
-            <p>$40.00 USD</p>
-          </a></div>
-        <div class="col-6 col-md-3"><a class="product" href="product.html"><img src="images/p-clay-roses.jpg"
-              alt="Clay Roses earrings">
-            <h3>Clay Roses</h3>
-            <p>$30.00 USD</p>
-          </a></div>
-        <div class="col-6 col-md-3"><a class="product" href="product.html"><img src="images/p-clay-koi.jpg"
-              alt="Clay Koi Fish earrings">
-            <h3>Clay Koi Fish</h3>
-            <p>$30.00 USD</p>
-          </a></div>
-        <div class="col-6 col-md-3"><a class="product" href="product.html"><img src="images/p-luna-moths.jpg"
-              alt="Luna Moths earrings">
-            <h3>Luna Moths</h3>
-            <p>$25.00 USD</p>
-          </a></div>
-        <div class="col-6 col-md-3"><a class="product" href="product.html"><img src="images/p-dream-fairy.jpg"
-              alt="Dream Fairy earrings">
-            <h3>Dream Fairy</h3>
-            <p>$30.00 USD</p>
-          </a></div>
-        <div class="col-6 col-md-3"><a class="product" href="product.html"><img src="images/p-strawberry.jpg"
-              alt="Strawberry Roses earrings">
-            <h3>Strawberry Roses</h3>
-            <p>$25.00 USD</p>
-          </a></div>
-        <div class="col-6 col-md-3"><a class="product" href="product.html"><img src="images/p-frog-lily.jpg"
-              alt="Frog Lily Pads earrings">
-            <h3>Frog Lily Pads</h3>
-            <p>$30.00 USD</p>
-          </a></div>
-        <div class="col-6 col-md-3"><a class="product" href="product.html"><img src="images/p-hobbit-doors.jpg"
-              alt="Hobbit Doors earrings">
-            <h3>Hobbit Doors</h3>
-            <p>$30.00 USD</p>
-          </a></div>
-        <div class="col-6 col-md-3"><a class="product" href="product.html"><img src="images/p-cauldron.jpg"
-              alt="Cauldron Charms earrings">
-            <h3>Cauldron Charms</h3>
-            <p>$20.00 USD</p>
-          </a></div>
-        <div class="col-6 col-md-3"><a class="product" href="product.html"><img src="images/p-sun-moon.jpg"
-              alt="Sun and Moon earrings">
-            <h3>Sun and Moon</h3>
-            <p>$15.00 USD</p>
-          </a></div>
-        <div class="col-6 col-md-3"><a class="product" href="product.html"><img src="images/p-purple-jellyfish.jpg"
-              alt="Purple Jellyfish earrings">
-            <h3>Purple Jellyfish</h3>
-            <p>$60.00 USD</p>
-          </a></div>
+    <div class="cat-links" role="tablist" aria-label="Shop categories">
+      <button class="cat-tab active" id="tab-jewelry" data-bs-toggle="pill" data-bs-target="#pane-jewelry" type="button"
+        role="tab" aria-controls="pane-jewelry" aria-selected="true">Jewelry</button><span aria-hidden="true">|</span>
+      <button class="cat-tab" id="tab-crafts" data-bs-toggle="pill" data-bs-target="#pane-crafts" type="button"
+        role="tab" aria-controls="pane-crafts" aria-selected="false">Arts & Crafts</button><span
+        aria-hidden="true">|</span>
+      <button class="cat-tab" id="tab-thrift" data-bs-toggle="pill" data-bs-target="#pane-thrift" type="button"
+        role="tab" aria-controls="pane-thrift" aria-selected="false">Thrift Flips</button>
+    </div>
+    <div class="container products tab-content">
+      <div class="tab-pane active" id="pane-jewelry" role="tabpanel" aria-labelledby="tab-jewelry" tabindex="0">
+        <div class="row g-4">
+          <div class="col-6 col-md-3">
+            <div class="tile">
+              <div class="product">
+                <button class="zoom" type="button" data-bs-toggle="modal" data-bs-target="#sh-blue-jellyfish"
+                  aria-label="Enlarge: Blue Jellyfish earrings"><img src="images/p-blue-jellyfish.jpg"
+                    alt="Blue Jellyfish earrings"></button>
+                <a class="product-link" href="product.html">
+                  <h3>Blue Jellyfish</h3>
+                  <p>$40.00 USD</p>
+                </a>
+              </div>
+              <div class="modal fade lightbox" id="sh-blue-jellyfish" tabindex="-1" aria-label="Blue Jellyfish earrings"
+                aria-hidden="true">
+                <div class="modal-dialog modal-fullscreen">
+                  <div class="modal-content">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <img src="images/p-blue-jellyfish.jpg" alt="Blue Jellyfish earrings" data-bs-dismiss="modal">
+                    <div class="lightbox-caption"><strong>Blue Jellyfish</strong> · $40.00 USD<br><a class="cs-btn"
+                        href="product.html">View product</a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="tile">
+              <div class="product">
+                <button class="zoom" type="button" data-bs-toggle="modal" data-bs-target="#sh-clay-roses"
+                  aria-label="Enlarge: Clay Roses earrings"><img src="images/p-clay-roses.jpg"
+                    alt="Clay Roses earrings"></button>
+                <a class="product-link" href="product.html">
+                  <h3>Clay Roses</h3>
+                  <p>$30.00 USD</p>
+                </a>
+              </div>
+              <div class="modal fade lightbox" id="sh-clay-roses" tabindex="-1" aria-label="Clay Roses earrings"
+                aria-hidden="true">
+                <div class="modal-dialog modal-fullscreen">
+                  <div class="modal-content">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <img src="images/p-clay-roses.jpg" alt="Clay Roses earrings" data-bs-dismiss="modal">
+                    <div class="lightbox-caption"><strong>Clay Roses</strong> · $30.00 USD<br><a class="cs-btn"
+                        href="product.html">View product</a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="tile">
+              <div class="product">
+                <button class="zoom" type="button" data-bs-toggle="modal" data-bs-target="#sh-clay-koi"
+                  aria-label="Enlarge: Clay Koi Fish earrings"><img src="images/p-clay-koi.jpg"
+                    alt="Clay Koi Fish earrings"></button>
+                <a class="product-link" href="product.html">
+                  <h3>Clay Koi Fish</h3>
+                  <p>$30.00 USD</p>
+                </a>
+              </div>
+              <div class="modal fade lightbox" id="sh-clay-koi" tabindex="-1" aria-label="Clay Koi Fish earrings"
+                aria-hidden="true">
+                <div class="modal-dialog modal-fullscreen">
+                  <div class="modal-content">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <img src="images/p-clay-koi.jpg" alt="Clay Koi Fish earrings" data-bs-dismiss="modal">
+                    <div class="lightbox-caption"><strong>Clay Koi Fish</strong> · $30.00 USD<br><a class="cs-btn"
+                        href="product.html">View product</a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="tile">
+              <div class="product">
+                <button class="zoom" type="button" data-bs-toggle="modal" data-bs-target="#sh-luna-moths"
+                  aria-label="Enlarge: Luna Moths earrings"><img src="images/p-luna-moths.jpg"
+                    alt="Luna Moths earrings"></button>
+                <a class="product-link" href="product.html">
+                  <h3>Luna Moths</h3>
+                  <p>$25.00 USD</p>
+                </a>
+              </div>
+              <div class="modal fade lightbox" id="sh-luna-moths" tabindex="-1" aria-label="Luna Moths earrings"
+                aria-hidden="true">
+                <div class="modal-dialog modal-fullscreen">
+                  <div class="modal-content">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <img src="images/p-luna-moths.jpg" alt="Luna Moths earrings" data-bs-dismiss="modal">
+                    <div class="lightbox-caption"><strong>Luna Moths</strong> · $25.00 USD<br><a class="cs-btn"
+                        href="product.html">View product</a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="tile">
+              <div class="product">
+                <button class="zoom" type="button" data-bs-toggle="modal" data-bs-target="#sh-dream-fairy"
+                  aria-label="Enlarge: Dream Fairy earrings"><img src="images/p-dream-fairy.jpg"
+                    alt="Dream Fairy earrings"></button>
+                <a class="product-link" href="product.html">
+                  <h3>Dream Fairy</h3>
+                  <p>$30.00 USD</p>
+                </a>
+              </div>
+              <div class="modal fade lightbox" id="sh-dream-fairy" tabindex="-1" aria-label="Dream Fairy earrings"
+                aria-hidden="true">
+                <div class="modal-dialog modal-fullscreen">
+                  <div class="modal-content">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <img src="images/p-dream-fairy.jpg" alt="Dream Fairy earrings" data-bs-dismiss="modal">
+                    <div class="lightbox-caption"><strong>Dream Fairy</strong> · $30.00 USD<br><a class="cs-btn"
+                        href="product.html">View product</a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="tile">
+              <div class="product">
+                <button class="zoom" type="button" data-bs-toggle="modal" data-bs-target="#sh-strawberry"
+                  aria-label="Enlarge: Strawberry Roses earrings"><img src="images/p-strawberry.jpg"
+                    alt="Strawberry Roses earrings"></button>
+                <a class="product-link" href="product.html">
+                  <h3>Strawberry Roses</h3>
+                  <p>$25.00 USD</p>
+                </a>
+              </div>
+              <div class="modal fade lightbox" id="sh-strawberry" tabindex="-1" aria-label="Strawberry Roses earrings"
+                aria-hidden="true">
+                <div class="modal-dialog modal-fullscreen">
+                  <div class="modal-content">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <img src="images/p-strawberry.jpg" alt="Strawberry Roses earrings" data-bs-dismiss="modal">
+                    <div class="lightbox-caption"><strong>Strawberry Roses</strong> · $25.00 USD<br><a class="cs-btn"
+                        href="product.html">View product</a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="tile">
+              <div class="product">
+                <button class="zoom" type="button" data-bs-toggle="modal" data-bs-target="#sh-frog-lily"
+                  aria-label="Enlarge: Frog Lily Pads earrings"><img src="images/p-frog-lily.jpg"
+                    alt="Frog Lily Pads earrings"></button>
+                <a class="product-link" href="product.html">
+                  <h3>Frog Lily Pads</h3>
+                  <p>$30.00 USD</p>
+                </a>
+              </div>
+              <div class="modal fade lightbox" id="sh-frog-lily" tabindex="-1" aria-label="Frog Lily Pads earrings"
+                aria-hidden="true">
+                <div class="modal-dialog modal-fullscreen">
+                  <div class="modal-content">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <img src="images/p-frog-lily.jpg" alt="Frog Lily Pads earrings" data-bs-dismiss="modal">
+                    <div class="lightbox-caption"><strong>Frog Lily Pads</strong> · $30.00 USD<br><a class="cs-btn"
+                        href="product.html">View product</a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="tile">
+              <div class="product">
+                <button class="zoom" type="button" data-bs-toggle="modal" data-bs-target="#sh-hobbit-doors"
+                  aria-label="Enlarge: Hobbit Doors earrings"><img src="images/p-hobbit-doors.jpg"
+                    alt="Hobbit Doors earrings"></button>
+                <a class="product-link" href="product.html">
+                  <h3>Hobbit Doors</h3>
+                  <p>$30.00 USD</p>
+                </a>
+              </div>
+              <div class="modal fade lightbox" id="sh-hobbit-doors" tabindex="-1" aria-label="Hobbit Doors earrings"
+                aria-hidden="true">
+                <div class="modal-dialog modal-fullscreen">
+                  <div class="modal-content">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <img src="images/p-hobbit-doors.jpg" alt="Hobbit Doors earrings" data-bs-dismiss="modal">
+                    <div class="lightbox-caption"><strong>Hobbit Doors</strong> · $30.00 USD<br><a class="cs-btn"
+                        href="product.html">View product</a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="tile">
+              <div class="product">
+                <button class="zoom" type="button" data-bs-toggle="modal" data-bs-target="#sh-cauldron"
+                  aria-label="Enlarge: Cauldron Charms earrings"><img src="images/p-cauldron.jpg"
+                    alt="Cauldron Charms earrings"></button>
+                <a class="product-link" href="product.html">
+                  <h3>Cauldron Charms</h3>
+                  <p>$20.00 USD</p>
+                </a>
+              </div>
+              <div class="modal fade lightbox" id="sh-cauldron" tabindex="-1" aria-label="Cauldron Charms earrings"
+                aria-hidden="true">
+                <div class="modal-dialog modal-fullscreen">
+                  <div class="modal-content">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <img src="images/p-cauldron.jpg" alt="Cauldron Charms earrings" data-bs-dismiss="modal">
+                    <div class="lightbox-caption"><strong>Cauldron Charms</strong> · $20.00 USD<br><a class="cs-btn"
+                        href="product.html">View product</a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane" id="pane-crafts" role="tabpanel" aria-labelledby="tab-crafts" tabindex="0">
+        <div class="empty">
+          <h2>Coming soon!</h2>
+          <p>Handmade Arts & Crafts are on the way. Want something made just for you?</p><a class="cs-btn magenta"
+            href="contact.html">Request a custom order</a>
+        </div>
+      </div>
+      <div class="tab-pane" id="pane-thrift" role="tabpanel" aria-labelledby="tab-thrift" tabindex="0">
+        <div class="row g-4">
+          <div class="col-6 col-md-3">
+            <div class="tile">
+              <div class="product">
+                <button class="zoom" type="button" data-bs-toggle="modal" data-bs-target="#sh-thrift-07"
+                  aria-label="Enlarge: Thrift Flip 1"><img src="images/gallery-07.jpg" alt="Thrift Flip 1"></button>
+                <div class="product-link">
+                  <h3>Thrift Flip 1</h3>
+                  <p>$40.00 USD</p>
+                </div>
+              </div>
+              <div class="modal fade lightbox" id="sh-thrift-07" tabindex="-1" aria-label="Thrift Flip 1"
+                aria-hidden="true">
+                <div class="modal-dialog modal-fullscreen">
+                  <div class="modal-content">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <img src="images/gallery-07.jpg" alt="Thrift Flip 1" data-bs-dismiss="modal">
+                    <div class="lightbox-caption"><strong>Thrift Flip 1</strong> · $40.00 USD<br><a class="cs-btn"
+                        href="contact.html">Ask about this piece</a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="tile">
+              <div class="product">
+                <button class="zoom" type="button" data-bs-toggle="modal" data-bs-target="#sh-thrift-08"
+                  aria-label="Enlarge: Thrift Flip 2"><img src="images/gallery-08.jpg" alt="Thrift Flip 2"></button>
+                <div class="product-link">
+                  <h3>Thrift Flip 2</h3>
+                  <p>$55.00 USD</p>
+                </div>
+              </div>
+              <div class="modal fade lightbox" id="sh-thrift-08" tabindex="-1" aria-label="Thrift Flip 2"
+                aria-hidden="true">
+                <div class="modal-dialog modal-fullscreen">
+                  <div class="modal-content">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <img src="images/gallery-08.jpg" alt="Thrift Flip 2" data-bs-dismiss="modal">
+                    <div class="lightbox-caption"><strong>Thrift Flip 2</strong> · $55.00 USD<br><a class="cs-btn"
+                        href="contact.html">Ask about this piece</a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="tile">
+              <div class="product">
+                <button class="zoom" type="button" data-bs-toggle="modal" data-bs-target="#sh-thrift-09"
+                  aria-label="Enlarge: Thrift Flip 3"><img src="images/gallery-09.jpg" alt="Thrift Flip 3"></button>
+                <div class="product-link">
+                  <h3>Thrift Flip 3</h3>
+                  <p>$35.00 USD</p>
+                </div>
+              </div>
+              <div class="modal fade lightbox" id="sh-thrift-09" tabindex="-1" aria-label="Thrift Flip 3"
+                aria-hidden="true">
+                <div class="modal-dialog modal-fullscreen">
+                  <div class="modal-content">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <img src="images/gallery-09.jpg" alt="Thrift Flip 3" data-bs-dismiss="modal">
+                    <div class="lightbox-caption"><strong>Thrift Flip 3</strong> · $35.00 USD<br><a class="cs-btn"
+                        href="contact.html">Ask about this piece</a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="tile">
+              <div class="product">
+                <button class="zoom" type="button" data-bs-toggle="modal" data-bs-target="#sh-thrift-10"
+                  aria-label="Enlarge: Thrift Flip 4"><img src="images/gallery-10.jpg" alt="Thrift Flip 4"></button>
+                <div class="product-link">
+                  <h3>Thrift Flip 4</h3>
+                  <p>$45.00 USD</p>
+                </div>
+              </div>
+              <div class="modal fade lightbox" id="sh-thrift-10" tabindex="-1" aria-label="Thrift Flip 4"
+                aria-hidden="true">
+                <div class="modal-dialog modal-fullscreen">
+                  <div class="modal-content">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <img src="images/gallery-10.jpg" alt="Thrift Flip 4" data-bs-dismiss="modal">
+                    <div class="lightbox-caption"><strong>Thrift Flip 4</strong> · $45.00 USD<br><a class="cs-btn"
+                        href="contact.html">Ask about this piece</a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="tile">
+              <div class="product">
+                <button class="zoom" type="button" data-bs-toggle="modal" data-bs-target="#sh-thrift-11"
+                  aria-label="Enlarge: Thrift Flip 5"><img src="images/gallery-11.jpg" alt="Thrift Flip 5"></button>
+                <div class="product-link">
+                  <h3>Thrift Flip 5</h3>
+                  <p>$60.00 USD</p>
+                </div>
+              </div>
+              <div class="modal fade lightbox" id="sh-thrift-11" tabindex="-1" aria-label="Thrift Flip 5"
+                aria-hidden="true">
+                <div class="modal-dialog modal-fullscreen">
+                  <div class="modal-content">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <img src="images/gallery-11.jpg" alt="Thrift Flip 5" data-bs-dismiss="modal">
+                    <div class="lightbox-caption"><strong>Thrift Flip 5</strong> · $60.00 USD<br><a class="cs-btn"
+                        href="contact.html">Ask about this piece</a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <section class="promo">
@@ -147,6 +444,76 @@
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     crossorigin="anonymous"></script>
+  <script>
+    // shop.html#thrift (or #crafts / #jewelry) opens that tab
+    (function () {
+      var t = document.getElementById('tab-' + location.hash.slice(1));
+      if (t) bootstrap.Tab.getOrCreateInstance(t).show();
+    })();
+  </script>
+  <script>
+    // Log in / Sign up popup. Opened by the user icon in every page header
+    // (button[data-bs-target="#account-modal"]).
+    (function () {
+      var html =
+        '<div class="modal fade account" id="account-modal" tabindex="-1" aria-labelledby="account-title" aria-hidden="true">' +
+        '<div class="modal-dialog modal-dialog-centered"><div class="modal-content">' +
+        '<div class="modal-header"><h2 class="modal-title" id="account-title">Welcome to the Studio!</h2>' +
+        '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>' +
+        '<div class="modal-body">' +
+        '<p class="demo-note">Demo: accounts aren’t connected yet, so nothing is saved or sent.</p>' +
+        '<ul class="nav nav-pills nav-fill mb-3" role="tablist">' +
+        '<li class="nav-item" role="presentation"><button class="nav-link active" id="acct-tab-in" data-bs-toggle="pill" data-bs-target="#acct-in" type="button" role="tab" aria-controls="acct-in" aria-selected="true">Log in</button></li>' +
+        '<li class="nav-item" role="presentation"><button class="nav-link" id="acct-tab-up" data-bs-toggle="pill" data-bs-target="#acct-up" type="button" role="tab" aria-controls="acct-up" aria-selected="false">Sign up</button></li>' +
+        '</ul><div class="tab-content">' +
+
+        '<div class="tab-pane fade show active" id="acct-in" role="tabpanel" aria-labelledby="acct-tab-in" tabindex="0">' +
+        '<form id="acct-form-in" novalidate><div class="row g-3">' +
+        '<div class="col-12"><label class="form-label" for="acct-in-email">Email</label><input class="form-control" id="acct-in-email" name="email" type="email" autocomplete="email" required><div class="invalid-feedback">Please enter a valid email.</div></div>' +
+        '<div class="col-12"><label class="form-label" for="acct-in-pw">Password</label><input class="form-control" id="acct-in-pw" name="password" type="password" autocomplete="current-password" required><div class="invalid-feedback">Please enter your password.</div></div>' +
+        '<div class="col-12"><button type="button" class="link-btn" data-acct-note="Password reset isn’t available yet.">Forgot password?</button></div>' +
+        '<div class="col-12"><button type="submit" class="cs-btn">Log in</button></div>' +
+        '<div class="col-12"><p class="acct-msg" role="status" aria-live="polite"></p></div>' +
+        '</div></form></div>' +
+
+        '<div class="tab-pane fade" id="acct-up" role="tabpanel" aria-labelledby="acct-tab-up" tabindex="0">' +
+        '<form id="acct-form-up" novalidate><div class="row g-3">' +
+        '<div class="col-12"><label class="form-label" for="acct-up-name">Full name</label><input class="form-control" id="acct-up-name" name="name" autocomplete="name" required><div class="invalid-feedback">Please enter your name.</div></div>' +
+        '<div class="col-12"><label class="form-label" for="acct-up-email">Email</label><input class="form-control" id="acct-up-email" name="email" type="email" autocomplete="email" required><div class="invalid-feedback">Please enter a valid email.</div></div>' +
+        '<div class="col-12"><label class="form-label" for="acct-up-pw">Password</label><input class="form-control" id="acct-up-pw" name="password" type="password" minlength="8" autocomplete="new-password" required><div class="invalid-feedback">Use at least 8 characters.</div></div>' +
+        '<div class="col-12"><div class="form-check"><input class="form-check-input" type="checkbox" id="acct-up-terms" required><label class="form-check-label" for="acct-up-terms">I’ve read the <a href="tos.html"><u>Terms of Service</u></a>.</label><div class="invalid-feedback">Please agree to continue.</div></div></div>' +
+        '<div class="col-12"><button type="submit" class="cs-btn">Create account</button></div>' +
+        '<div class="col-12"><p class="acct-msg" role="status" aria-live="polite"></p></div>' +
+        '</div></form></div>' +
+
+        '</div></div></div></div></div>';
+
+      var wrap = document.createElement('div');
+      wrap.innerHTML = html;
+      var modal = wrap.firstElementChild;
+      document.body.appendChild(modal);
+
+      function msg(form, text) { form.querySelector('.acct-msg').textContent = text; }
+
+      modal.querySelectorAll('form').forEach(function (form) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          if (!form.checkValidity()) { form.classList.add('was-validated'); return; }
+          var name = form.elements.name ? String(form.elements.name.value).split(' ')[0] : '';
+          form.reset(); form.classList.remove('was-validated');
+          msg(form, form.id === 'acct-form-up'
+            ? 'Thanks' + (name ? ', ' + name : '') + '! This is a preview, so no account was created yet.'
+            : 'This is a preview, so no one was logged in yet.');
+        });
+      });
+      modal.querySelectorAll('[data-acct-note]').forEach(function (b) {
+        b.addEventListener('click', function () { msg(b.closest('form'), b.getAttribute('data-acct-note')); });
+      });
+      modal.addEventListener('hidden.bs.modal', function () {
+        modal.querySelectorAll('form').forEach(function (f) { f.reset(); f.classList.remove('was-validated'); msg(f, ''); });
+      });
+    })();
+  </script>
 </body>
 
 </html>

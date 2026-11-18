@@ -18,7 +18,8 @@
     <div class="header-top">
       <a class="logo" href="index.html"><img src="images/logo.png" alt="Charice's Studio"></a>
       <div class="header-icons">
-        <a href="cart.html"><img src="images/icon-user.png" alt="Account"></a>
+        <button class="icon-btn" type="button" data-bs-toggle="modal" data-bs-target="#account-modal"
+          aria-label="Log in or sign up"><img src="images/icon-user.png" alt=""></button>
         <a href="cart.html"><img src="images/icon-cart.png" alt="Shopping cart"></a>
         <span class="divider"></span>
         <a class="social" href="https://www.instagram.com/charicesstudio/"><img src="images/icon-instagram.png"
@@ -47,7 +48,7 @@
   <main>
     <section class="container profile">
       <div class="row g-4 align-items-start">
-        <div class="col-md-5"><img class="portrait" src="images/charice.jpg" alt="Portrait of Charice Sinclair"></div>
+        <div class="col-md-5"><img class="portrait" src="images/charice.png" alt="Portrait of Charice Sinclair"></div>
         <div class="col-md-7">
           <div class="bio">
             <h1>Meet Charice Sinclair!</h1>
@@ -111,6 +112,70 @@
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     crossorigin="anonymous"></script>
+
+  <script>
+    // Log in / Sign up popup. Opened by the user icon in every page header
+    // (button[data-bs-target="#account-modal"]).
+    (function () {
+      var html =
+        '<div class="modal fade account" id="account-modal" tabindex="-1" aria-labelledby="account-title" aria-hidden="true">' +
+        '<div class="modal-dialog modal-dialog-centered"><div class="modal-content">' +
+        '<div class="modal-header"><h2 class="modal-title" id="account-title">Welcome to the Studio!</h2>' +
+        '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>' +
+        '<div class="modal-body">' +
+        '<p class="demo-note">Demo: accounts aren’t connected yet, so nothing is saved or sent.</p>' +
+        '<ul class="nav nav-pills nav-fill mb-3" role="tablist">' +
+        '<li class="nav-item" role="presentation"><button class="nav-link active" id="acct-tab-in" data-bs-toggle="pill" data-bs-target="#acct-in" type="button" role="tab" aria-controls="acct-in" aria-selected="true">Log in</button></li>' +
+        '<li class="nav-item" role="presentation"><button class="nav-link" id="acct-tab-up" data-bs-toggle="pill" data-bs-target="#acct-up" type="button" role="tab" aria-controls="acct-up" aria-selected="false">Sign up</button></li>' +
+        '</ul><div class="tab-content">' +
+
+        '<div class="tab-pane fade show active" id="acct-in" role="tabpanel" aria-labelledby="acct-tab-in" tabindex="0">' +
+        '<form id="acct-form-in" novalidate><div class="row g-3">' +
+        '<div class="col-12"><label class="form-label" for="acct-in-email">Email</label><input class="form-control" id="acct-in-email" name="email" type="email" autocomplete="email" required><div class="invalid-feedback">Please enter a valid email.</div></div>' +
+        '<div class="col-12"><label class="form-label" for="acct-in-pw">Password</label><input class="form-control" id="acct-in-pw" name="password" type="password" autocomplete="current-password" required><div class="invalid-feedback">Please enter your password.</div></div>' +
+        '<div class="col-12"><button type="button" class="link-btn" data-acct-note="Password reset isn’t available yet.">Forgot password?</button></div>' +
+        '<div class="col-12"><button type="submit" class="cs-btn">Log in</button></div>' +
+        '<div class="col-12"><p class="acct-msg" role="status" aria-live="polite"></p></div>' +
+        '</div></form></div>' +
+
+        '<div class="tab-pane fade" id="acct-up" role="tabpanel" aria-labelledby="acct-tab-up" tabindex="0">' +
+        '<form id="acct-form-up" novalidate><div class="row g-3">' +
+        '<div class="col-12"><label class="form-label" for="acct-up-name">Full name</label><input class="form-control" id="acct-up-name" name="name" autocomplete="name" required><div class="invalid-feedback">Please enter your name.</div></div>' +
+        '<div class="col-12"><label class="form-label" for="acct-up-email">Email</label><input class="form-control" id="acct-up-email" name="email" type="email" autocomplete="email" required><div class="invalid-feedback">Please enter a valid email.</div></div>' +
+        '<div class="col-12"><label class="form-label" for="acct-up-pw">Password</label><input class="form-control" id="acct-up-pw" name="password" type="password" minlength="8" autocomplete="new-password" required><div class="invalid-feedback">Use at least 8 characters.</div></div>' +
+        '<div class="col-12"><div class="form-check"><input class="form-check-input" type="checkbox" id="acct-up-terms" required><label class="form-check-label" for="acct-up-terms">I’ve read the <a href="tos.html"><u>Terms of Service</u></a>.</label><div class="invalid-feedback">Please agree to continue.</div></div></div>' +
+        '<div class="col-12"><button type="submit" class="cs-btn">Create account</button></div>' +
+        '<div class="col-12"><p class="acct-msg" role="status" aria-live="polite"></p></div>' +
+        '</div></form></div>' +
+
+        '</div></div></div></div></div>';
+
+      var wrap = document.createElement('div');
+      wrap.innerHTML = html;
+      var modal = wrap.firstElementChild;
+      document.body.appendChild(modal);
+
+      function msg(form, text) { form.querySelector('.acct-msg').textContent = text; }
+
+      modal.querySelectorAll('form').forEach(function (form) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          if (!form.checkValidity()) { form.classList.add('was-validated'); return; }
+          var name = form.elements.name ? String(form.elements.name.value).split(' ')[0] : '';
+          form.reset(); form.classList.remove('was-validated');
+          msg(form, form.id === 'acct-form-up'
+            ? 'Thanks' + (name ? ', ' + name : '') + '! This is a preview, so no account was created yet.'
+            : 'This is a preview, so no one was logged in yet.');
+        });
+      });
+      modal.querySelectorAll('[data-acct-note]').forEach(function (b) {
+        b.addEventListener('click', function () { msg(b.closest('form'), b.getAttribute('data-acct-note')); });
+      });
+      modal.addEventListener('hidden.bs.modal', function () {
+        modal.querySelectorAll('form').forEach(function (f) { f.reset(); f.classList.remove('was-validated'); msg(f, ''); });
+      });
+    })();
+  </script>
 </body>
 
 </html>
