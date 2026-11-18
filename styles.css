@@ -31,7 +31,7 @@ h1,h2{font-family:var(--display);font-style:italic;font-weight:800;line-height:1
 .main-nav a:hover,.main-nav a[aria-current]{text-decoration:underline;text-underline-offset:4px}
 
 /* Buttons */
-.cs-btn{display:block;text-align:center;font-weight:700;text-transform:uppercase;color:var(--white);border-radius:14px;padding:12px 24px;background:var(--lime);transition:filter .2s}
+.cs-btn{display:flex;justify-content:center;align-items:center;text-align:center;font-weight:700;text-transform:uppercase;color:var(--white);border-radius:14px;padding:12px 24px;background:var(--lime);transition:filter .2s}
 .cs-btn:hover{filter:brightness(.92);color:var(--white)}
 .cs-btn.magenta{background:#CB6BB9}
 .cs-btn.big{font-size:1.2rem;padding:14px 24px}
